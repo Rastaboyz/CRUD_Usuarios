@@ -1,0 +1,132 @@
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <welcome-file-list>
+    <welcome-file>ControllerServlet</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+    <servlet-name>ControllerServlet</servlet-name>
+    <servlet-class>servlets.ControllerServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>servlets.AddUserController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>servlets.DeleteUserController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>UpdateUser</servlet-name>
+    <servlet-class>servlets.UpdateUserController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>InsertRol</servlet-name>
+    <servlet-class>servlets.AddRolController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>DeleteRol</servlet-name>
+    <servlet-class>servlets.DeleteRolController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ModificarRol</servlet-name>
+    <servlet-class>servlets.UpdateRolController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GestionarUsuarios</servlet-name>
+    <servlet-class>servlets.UserController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GestionarRoles</servlet-name>
+    <servlet-class>servlets.RolController</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>servlets.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ControllerServlet</servlet-name>
+    <url-pattern>/ControllerServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/AddUserController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/DeleteUserController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>UpdateUser</servlet-name>
+    <url-pattern>/UpdateUserController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>InsertRol</servlet-name>
+    <url-pattern>/AddRolController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DeleteRol</servlet-name>
+    <url-pattern>/DeleteRolController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ModificarRol</servlet-name>
+    <url-pattern>/UpdateRolController</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GestionarUsuarios</servlet-name>
+    <url-pattern>/Usuarios</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>GestionarRoles</servlet-name>
+    <url-pattern>/Roles</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+
+  <security-constrain>
+    <web-resource-collection>
+      <web-resource-name>This function is function</web-resource-name>
+      <url-pattern>/*</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+
+    <auth-constrain>
+      <role-name>admin</role-name>
+    </auth-constrain>
+
+    <user-data-constrain>
+      <transport-garantee>NONE</transport-garantee>
+    </user-data-constrain>
+
+  </security-constrain>
+
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-page>/login.jsp</form-login-page>
+    <form-login-page>/error.jsp</form-login-page>
+  </login-config>
+
+</web-app>
