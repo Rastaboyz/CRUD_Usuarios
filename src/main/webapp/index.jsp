@@ -3,9 +3,13 @@
 
 <html>
 <head>
-    <link href="" rel="icon">
+    <link type="icon"/>
 </head>
 <body>
+
+<h2>Weolcome <%= request.getParameter("j_username")%></h2>
+<!-- request.request.request.userPrincipal.name -->
+
 <h3>Lista usuarios</h3>
 <!-- Llama al tag rellenando el HTML que se haya definido allí. -->
 <tags:tablaUsuarios users='${requestScope.listaUsuarios}'/> <!-- .listaUsuarios es la KEY del servlet -->
@@ -29,6 +33,8 @@
     <input type="submit" name="accion" value="Actualizar rol">
     <input type="submit" name="accion" value="Borrar rol">
 </form>
+
+<a href="logout.jsp" >Click to Logout </a>
 
 <div id="resGestion">${requestScope.insertResult}</div>
 <!-- OLD
