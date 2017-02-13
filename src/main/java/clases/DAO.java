@@ -20,7 +20,7 @@ public class DAO {
         // Nombdre de Driver JDBC y la dirección URL para conectarse.
         final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         //final String DB_URL = "jdbc:mysql://172.16.12.151/dwes"; // Instituto
-        final String DB_URL = "jdbc:mysql://172.16.12.151/authorization"; // toni change bbdd insti
+        final String DB_URL = "jdbc:mysql://172.16.12.152/authorization"; // toni change bbdd insti
         //final String DB_URL = "jdbc:mysql://192.168.1.132/dwes"; // Casa
 
         //  Credenciales para la conexión a base de datos.
