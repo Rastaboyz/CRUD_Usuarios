@@ -5,6 +5,8 @@
     <welcome-file>ControllerServlet</welcome-file>
   </welcome-file-list>
 
+
+
   <servlet>
     <servlet-name>ControllerServlet</servlet-name>
     <servlet-class>servlets.ControllerServlet</servlet-class>
@@ -53,11 +55,6 @@
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>servlets.LoginServlet</servlet-class>
-  </servlet>
-
-  <servlet>
-    <servlet-name>DigestServlet</servlet-name>
-    <servlet-class>servlets.DigestServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -110,12 +107,7 @@
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>DigestServlet</servlet-name>
-    <url-pattern>/LoginDigest</url-pattern>
-  </servlet-mapping>
-
-  <!--
+  <!-- FORM
   <security-constrain>
     <web-resource-collection>
       <web-resource-name>This function is function</web-resource-name>
@@ -140,6 +132,8 @@
     <form-login-page>/error.jsp</form-login-page>
   </login-config>
   -->
+
+  <!-- DIGEST -->
   <display-name>Login Demo Using j_security_check</display-name>
   <!--Defines Security Constraint -->
   <security-constraint>
@@ -156,12 +150,7 @@
   </security-constraint>
   <!--Defines Login Config -->
   <login-config>
-    <auth-method>FORM</auth-method>
-    <realm-name>file</realm-name>
-    <form-login-config>
-      <form-login-page>/login.jsp</form-login-page>
-      <form-error-page>/error.jsp</form-error-page>
-    </form-login-config>
+    <auth-method>DIGEST</auth-method>
   </login-config>
   <!--Defines Security Role -->
   <security-role>
