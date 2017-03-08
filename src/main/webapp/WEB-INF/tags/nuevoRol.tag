@@ -4,10 +4,10 @@
 <!-- En "localhost" la lista esta vacía, por tanto se usa el IF para evitar mostrar tabla vacía. -->
 <c:if test="${roles != null}">
 
-    <select name="rol">
+    <select name="nuevoRol">
         <c:forEach items="${roles}" var="rol">
             <option>
-                ${rol.nombreRol}
+                    ${rol.nombreRol}
             </option>
         </c:forEach>
     </select>

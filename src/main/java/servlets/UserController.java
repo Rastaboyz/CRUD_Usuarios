@@ -1,12 +1,14 @@
 package servlets;
 
 import clases.DAO;
+import clases.pojo.Usuarios;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by vitaly94 on 09/02/2017.
@@ -16,21 +18,22 @@ public class UserController extends HttpServlet{
         String tipoAccion = request.getParameter("accion");
         String result = "";
         if (tipoAccion.contains("Añadir")){
-            String nombre = request.getParameter("usuario");
-            String passwd = request.getParameter("passwd");
-            String rol = request.getParameter("rol");
-            result = DAO.anadirUsuario(nombre, passwd, rol);
-        }else if (tipoAccion.contains("actualizar")){
             String usuario = request.getParameter("usuario");
-            String nuevoUsuario = request.getParameter("nuevoUsuario");
-            String nuevoPassword = request.getParameter("nuevoPassword");
-            String nuevoRol = request.getParameter("rol");
-            result = DAO.modificarUsuario(usuario, nuevoUsuario, nuevoPassword, nuevoRol);
-        }else if (tipoAccion.contains("borrar")){
+            String passwd = request.getParameter("password");
+            String rol = request.getParameter("rol");
+            result = DAO.anadirUsuario(usuario, passwd, rol);
+        }else if (tipoAccion.contains("Actualizar")){
+            String usuario = request.getParameter("usuario");
+            //String nuevoUsuario = request.getParameter("usuarioNuevo");
+            String passwdNuevo = request.getParameter("passwdNuevo");
+            String rolNuevo = request.getParameter("nuevoRol");
+            result = DAO.modificarUsuario(usuario, passwdNuevo, rolNuevo);
+        }else if (tipoAccion.contains("Borrar")){
             String usuario = request.getParameter("usuario");
             result = DAO.borrarUsuario(usuario);
         }
-        request.setAttribute("resGestion", result); //Guarda como atributo en la URL.
-        request.getRequestDispatcher("index.jsp").include(request, response); // Incluye nuevos cambios.
+        request.setAttribute("insertResult", result); //Guarda como atributo en la URL.
+        request.getRequestDispatcher("/ControllerServlet").forward(request, response);
+
     }
 }

@@ -15,20 +15,20 @@ public class RolController extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tipoAccion = request.getParameter("accion");
         String result = "";
-        if (tipoAccion.equalsIgnoreCase("Añadir")){
-            String rol = request.getParameter("rolName");
-            String descripcion = request.getParameter("rolDescription");
+        if (tipoAccion.contains("Añadir")){
+            String rol = request.getParameter("nombreRol");
+            String descripcion = request.getParameter("descripcionRol");
             result = DAO.anadirRol(rol, descripcion);
-        }else if (tipoAccion.equalsIgnoreCase("actualizar")){
-            String rol = request.getParameter("rolName");
-            String nuevoRol = request.getParameter("nuevoRol");
-            String nuevoDescripcion = request.getParameter("rolDescription");
+        }else if (tipoAccion.contains("Actualizar")){
+            String rol = request.getParameter("nombreRol");
+            String nuevoRol = request.getParameter("rolNuevo");
+            String nuevoDescripcion = request.getParameter("descNuevo");
             result = DAO.modificarRol(rol, nuevoRol, nuevoDescripcion);
-        }else if (tipoAccion.equalsIgnoreCase("borrar")){
-            String rol = request.getParameter("rolName");
+        }else if (tipoAccion.contains("Borrar")){
+            String rol = request.getParameter("nombreRol");
             result = DAO.borrarRol(rol);
         }
-        request.setAttribute("resGestion", result); //Guarda como atributo en la URL.
-        request.getRequestDispatcher("index.jsp").include(request, response); // Incluye nuevos cambios.
+        request.setAttribute("insertResult", result); //Guarda como atributo en la URL.
+        request.getRequestDispatcher("/ControllerServlet").forward(request, response);
     }
 }

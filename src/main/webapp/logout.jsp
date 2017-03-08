@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>Logout</title>
+    <link type="icon"/>
 </head>
 <body>
 <%
     session.invalidate();
-    response.sendRedirect("index.jsp");
+    response.sendRedirect("http://localhost:8080");
 %>
 </body>
 </html>
